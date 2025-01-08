@@ -40,6 +40,6 @@ return {
     })
 
     -- Set up a keybind to reveal the filesystem tree.
-    vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<cr>", {})
+    vim.keymap.set("n", "<c-n>", "<cmd>Neotree filesystem reveal left<cr>", {})
   end
 }
