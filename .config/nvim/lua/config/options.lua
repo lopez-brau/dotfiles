@@ -34,3 +34,15 @@ vim.o.shiftwidth = 2
 
 -- Convert tabs to spaces.
 vim.o.expandtab = true
+
+-- Disable in-line diagnostics.
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+-- Set the update time (in ms).
+vim.o.updatetime = 150
+
+--vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = "#66f266" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "white" })
+vim.cmd("highlight Pmenu guibg=white")
