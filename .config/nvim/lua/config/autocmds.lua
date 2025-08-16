@@ -19,3 +19,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.fn.winrestview(cursor_position)
   end
 })
+
+-- Show code diagnostics in a hover window.
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+  callback = function()
+    local opts = {
+      border = "rounded",
+      focus = false,
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
+})
