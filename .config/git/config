@@ -1,0 +1,7 @@
+[user]
+	email = michael.lopez.brau@gmail.com
+	name = lopez-brau
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
