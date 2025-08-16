@@ -42,7 +42,3 @@ vim.diagnostic.config({
 
 -- Set the update time (in ms).
 vim.o.updatetime = 150
-
---vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = "#66f266" })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "white" })
-vim.cmd("highlight Pmenu guibg=white")
