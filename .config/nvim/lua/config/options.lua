@@ -1,19 +1,20 @@
 -- Check if we're using WSL.
 if vim.fn.has("wsl") == 1 then
-  -- Set the clipboard.
+  -- Maps the "+" and "*" registers to the system clipboard (these are the same on Windows).
   vim.g.clipboard = {
     name = "WslClipboard",
     copy = {
       ["+"] = "clip.exe",
-      ["*"] = "clip.exe",
+      ["*"] = "clip.exe"
     },
     paste = {
       ["+"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
-      ["*"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
+      ["*"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))"
     },
-    cache_enabled = 0,
+    cache_enabled = 0
   }
 else
+  -- Maps the "" (unnamed) and "+" registers to the system clipboard.
   vim.o.clipboard = "unnamedplus"
 end
 
