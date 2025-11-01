@@ -5,8 +5,8 @@ if vim.fn.has("wsl") == 1 then
     pattern = { "*" },
     callback = function()
       vim.o.guicursor = ""
-      vim.api.nvim_chan_send(vim.v.stderr, '\x1b[0 q')
-    end
+      vim.api.nvim_chan_send(vim.v.stderr, "\x1b[0 q")
+    end,
   })
 end
 
@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     local cursor_position = vim.fn.winsaveview()
     vim.cmd([[keeppatterns %s/\s\+$//e]])
     vim.fn.winrestview(cursor_position)
-  end
+  end,
 })
 
 -- Show code diagnostics in a hover window.
@@ -29,5 +29,5 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
       focus = false,
     }
     vim.diagnostic.open_float(nil, opts)
-  end
+  end,
 })

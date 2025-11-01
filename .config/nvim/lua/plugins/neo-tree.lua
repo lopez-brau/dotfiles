@@ -1,5 +1,5 @@
 return {
-	"nvim-neo-tree/neo-tree.nvim",
+  "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -16,8 +16,10 @@ return {
             local path = state.tree:get_node().path
             local msg = "Are you sure you want to trash '" .. path .. "'?"
             inputs.confirm(msg, function(confirmed)
-              if not confirmed then return end
-              vim.fn.system({"trash", vim.fn.fnameescape(path)})
+              if not confirmed then
+                return
+              end
+              vim.fn.system({ "trash", vim.fn.fnameescape(path) })
               require("neo-tree.sources.manager").refresh(state.name)
             end)
           end,
@@ -28,18 +30,20 @@ return {
             local count = vim.tbl_count(selected_nodes)
             local msg = "Are you sure you want to trash " .. count .. " files?"
             inputs.confirm(msg, function(confirmed)
-              if not confirmed then return end
+              if not confirmed then
+                return
+              end
               for _, node in ipairs(selected_nodes) do
-                vim.fn.system({"trash", vim.fn.fnameescape(node.path)})
+                vim.fn.system({ "trash", vim.fn.fnameescape(node.path) })
               end
               require("neo-tree.sources.manager").refresh(state.name)
             end)
-          end
-        }
-      }
+          end,
+        },
+      },
     })
 
     -- Set up a keybind to reveal the filesystem tree.
     vim.keymap.set("n", "<c-n>", "<cmd>Neotree filesystem reveal left<cr>", {})
-  end
+  end,
 }

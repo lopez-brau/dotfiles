@@ -5,13 +5,13 @@ if vim.fn.has("wsl") == 1 then
     name = "WslClipboard",
     copy = {
       ["+"] = "clip.exe",
-      ["*"] = "clip.exe"
+      ["*"] = "clip.exe",
     },
     paste = {
       ["+"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
-      ["*"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))"
+      ["*"] = "powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace('`r', ''))",
     },
-    cache_enabled = 0
+    cache_enabled = 0,
   }
 else
   -- Maps the "" (unnamed) and "+" registers to the system clipboard.
@@ -19,7 +19,7 @@ else
 end
 
 -- Enable 24-bit color.
-if (vim.fn.has("termguicolors")) then
+if vim.fn.has("termguicolors") then
   vim.o.termguicolors = true
 end
 

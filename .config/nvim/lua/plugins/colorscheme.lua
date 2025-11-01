@@ -6,14 +6,14 @@ return {
     enabled = true,
     config = function()
       vim.g.dracula_italics = 1
-      vim.g.dracula_colorterm = 0
+      vim.g.dracula_colorterm = 1
       vim.cmd.colorscheme("dracula")
       vim.api.nvim_set_hl(0, "Pmenu", { bg = "#282A36" })
       vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", {
         fg = "#6272A4",
-        bg = "#282A36"
+        bg = "#282A36",
       })
-    end
+    end,
   },
   {
     "folke/tokyonight.nvim",
@@ -22,9 +22,9 @@ return {
     enabled = false,
     config = function()
       require("tokyonight").setup({
-        style = "moon"
+        style = "moon",
       })
       vim.cmd.colorscheme("tokyonight")
-    end
-  }
+    end,
+  },
 }
